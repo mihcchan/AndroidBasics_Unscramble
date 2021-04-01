@@ -83,16 +83,17 @@ class GameFragment : Fragment() {
             } else {
                 showFinalScoreDialog()
             }
-        } else{
+        } else {
             setErrorTextField(true)
         }
     }
+
     /*
      * Skips the current word without changing the score.
      * Increases the word count.
      */
     private fun onSkipWord() {
-        if (viewModel.nextWord()){
+        if (viewModel.nextWord()) {
             setErrorTextField(false)
             updateNextWordOnScreen()
         } else {
@@ -132,6 +133,7 @@ class GameFragment : Fragment() {
      * restart the game.
      */
     private fun restartGame() {
+        viewModel.reinitializeData()
         setErrorTextField(false)
         updateNextWordOnScreen()
     }
